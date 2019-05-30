@@ -11,12 +11,12 @@ import './style/style.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
 
-state.dispatch(expense_action.addExpense({description:"water bill", amount:3000, createdAt:2500}));
-state.dispatch(expense_action.addExpense({description:"gas bill", createdAt:2000}));
-state.dispatch(expense_action.addExpense({description:"rent", amount:91000, createdAt:1000}));
+// state.dispatch(expense_action.addExpense({description:"water bill", amount:3000, createdAt:2500}));
+// state.dispatch(expense_action.addExpense({description:"gas bill", createdAt:2000}));
+// state.dispatch(expense_action.addExpense({description:"rent", amount:91000, createdAt:1000}));
 
 
-//console.log(filterExpense(realState.expenses, realState.filter));
+// //console.log(filterExpense(realState.expenses, realState.filter));
 
 
 
