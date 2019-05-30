@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing not found component 1`] = `
+<div>
+  <p>
+    this is 404 page 
+    <Link
+      to="/"
+    >
+      go home
+    </Link>
+  </p>
+</div>
+`;

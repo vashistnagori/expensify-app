@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing ExpenseListItem with one expense data 1`] = `
+<div>
+  <Link
+    to="/edit/4"
+  >
+     
+    <h3>
+      mobile
+    </h3>
+  </Link>
+  <p>
+    110
+      - 
+    2419200000
+  </p>
+  <hr />
+</div>
+`;

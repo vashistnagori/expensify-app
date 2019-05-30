@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing Header component 1`] = `
+<div>
+  <h1>
+    Expencify app
+  </h1>
+  <NavLink
+    activeClassName="is_active"
+    exact={true}
+    to="/"
+  >
+    HomePage
+  </NavLink>
+    
+  <NavLink
+    activeClassName="is_active"
+    to="/create"
+  >
+    create
+  </NavLink>
+    
+  <NavLink
+    activeClassName="is_active"
+    to="/edit"
+  >
+    edit
+  </NavLink>
+    
+</div>
+`;
