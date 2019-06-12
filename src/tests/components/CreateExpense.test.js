@@ -7,7 +7,7 @@ let spyfunction, history, wrapper;
 beforeEach(()=>{
      spyfunction=jest.fn();
      history={push: jest.fn()};
-     wrapper= shallow(<CreateExpense dispatch_addexpenses={spyfunction} history={history}/>);
+     wrapper= shallow(<CreateExpense dispatch_startAddExpense={spyfunction} history={history}/>);
 });
 
 

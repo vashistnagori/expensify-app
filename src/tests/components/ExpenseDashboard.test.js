@@ -1,8 +1,9 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import ExpenseDashboard from '../../components/ExpenseDashboard';
+import {ExpenseDashboardMaking} from '../../components/ExpenseDashboard';
+import {testexp} from '../fixture/expense';
 
 test("testing ExpenseDashboard component",()=>{
-    const wrapper=shallow(<ExpenseDashboard />);
+    const wrapper=shallow(<ExpenseDashboardMaking expenses={testexp}/>);
     expect(wrapper).toMatchSnapshot();
 });

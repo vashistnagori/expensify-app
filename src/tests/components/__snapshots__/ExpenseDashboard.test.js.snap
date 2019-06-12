@@ -6,6 +6,10 @@ exports[`testing ExpenseDashboard component 1`] = `
     this is homepage
   </p>
   <Connect(ExpenseListFilter) />
+  <ExpenseSumary
+    count={5}
+    total={1895}
+  />
   <Connect(ExpenseList) />
 </div>
 `;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing ExpenseSumary for 0 total 0 count 1`] = `
+<div>
+  <h1>
+    viewing 
+    0
+     expenses totalling 
+    $0.00
+  </h1>
+</div>
+`;
+
+exports[`testing ExpenseSumary for 23 total 2357876 count 1`] = `
+<div>
+  <h1>
+    viewing 
+    2357876
+     expenses totalling 
+    $0.23
+  </h1>
+</div>
+`;

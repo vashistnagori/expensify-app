@@ -9,6 +9,7 @@ import {filterExpense} from './selectors/expense';
 import 'normalize.css/normalize.css';
 import './style/style.scss';
 import 'react-dates/lib/css/_datepicker.css';
+import './firebase/firebase';
 
 
 // state.dispatch(expense_action.addExpense({description:"water bill", amount:3000, createdAt:2500}));

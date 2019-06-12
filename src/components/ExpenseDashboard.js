@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {expenseTotal} from '../selectors/expense-total';
 
 
-const ExpenseDashboardMaking=(props)=>{
+export const ExpenseDashboardMaking=(props)=>{
 const total= expenseTotal(props.expenses);
    return(<div>
     <p>this is homepage</p>

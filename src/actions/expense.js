@@ -1,11 +1,37 @@
 import uuid from 'uuid';
+import db from '../firebase/firebase'
 
-export const addExpense=({description='', note='', amount=0, createdAt=''}={})=>{
-    return {
-        type:"addExpense", 
-        expenseDetail:{id:uuid(), description, note, amount, createdAt}
-    }
-    }
+// export const addExpense=(expense)=>{
+//     return {
+//         type:"addExpense", 
+//         expenseDetail:expense
+//     }
+//     };
+
+// export const startAddExpense=(expenseData={})=>{
+//     const {description='', note='', amount=0, createdAt=''} = expenseData;
+//     const expense= {description, note, amount, createdAt};
+
+//  return (dispatch)=>{
+//      db.ref('expense').push(expense).then((ref)=>{
+//          dispatch(addExpense({id:ref.key, ...expense}));
+//      });
+//  }
+// };
+////// startAddExpense or above comment section works same with thunk functionality
+
+export const startAddExpense=(expenseData={})=>{
+    const {description='', note='', amount=0, createdAt=''} = expenseData;
+    const expense= {description, note, amount, createdAt};
+    return (dispatch)=>{
+         return db.ref('expense').push(expense).then((ref)=>{
+                            dispatch({type:"addExpense", expenseDetail:{id:ref.key, ...expense}});
+                    });
+                }
+};
+
+
+
     
 export const removeExpense=({id=0}={})=>{
     return {
