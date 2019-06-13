@@ -25,6 +25,21 @@ test("Remove Expense action testing",()=>{
     });
     });
 
+test("testing Start remove expense",(done)=>{
+    const store=createMockStore({});
+    const id=testexp[0].id;
+    expense_actions.startRemoveExpense({id})(store.dispatch).then(()=>{
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({type:"removeExpense", id});
+       return db.ref(`expense/${id}`).once('value');
+    }).then((snapshot)=>{
+        expect(snapshot.val()).toBe(null);
+        done();
+    })
+    .catch((e)=>console.log(e));
+
+});
+
 
 test("EDIT expense action testing",()=>{
     expect(expense_actions.editExpense("abc123", {description:"lastest updated rent", amount:910})).toEqual({
