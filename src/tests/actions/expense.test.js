@@ -49,7 +49,20 @@ test("EDIT expense action testing",()=>{
     });
     });
 
-
+test("Testing startEditExpense",(done)=>{
+    const store=createMockStore({});
+    const id=4;
+    const updatedExpense={amount:108};
+    expense_actions.startEditExpense(id,updatedExpense)(store.dispatch).then(()=>{
+        const actions=store.getActions();
+        expect(actions[0]).toEqual({ type:"editExpense", id, updatedExpense});
+        return db.ref(`expense/${id}`).once("value");
+    }).then((snap)=>{
+expect(snap.val())
+.toEqual({description:'mobile', note:'', amount:110, createdAt:moment(0).add(28,'days').valueOf(), ...updatedExpense });
+done();
+    }).catch((e)=>console.log(e));
+});
 
 // test("ADD expense action testing WITH DEFAULT VALUES",()=>{
 //     expect(expense_actions.addExpense()).toEqual({

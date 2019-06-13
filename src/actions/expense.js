@@ -31,7 +31,7 @@ export const startAddExpense=(expenseData={})=>{
 };
 
 
-
+///////
     
 export const removeExpense=({id=0}={})=>{
     return {
@@ -46,6 +46,7 @@ return (dispatch)=>{
     });
 }
 }
+///////
     
 export const editExpense=(id, updatedExpense)=>{
         return {
@@ -53,7 +54,21 @@ export const editExpense=(id, updatedExpense)=>{
             id,
             updatedExpense
         }
+    };
+/// using Update method on firebase would be a better idea in the below action generator, but i did it so i will stick to it for now
+
+export const startEditExpense=(id, updatedExpense)=>{
+    return (dispatch)=>{
+       return db.ref(`expense/${id}`).once("value").then((snap)=>{
+            return snap.val();
+        }).then((old_val)=>{
+            const new_val={...old_val, ...updatedExpense};
+            db.ref(`expense/${id}`).set(new_val);
+        }).then(()=>{
+            dispatch(editExpense(id, updatedExpense));
+        });
     }
+}
 
 
 ///////
