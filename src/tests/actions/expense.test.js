@@ -1,4 +1,5 @@
 import * as expense_actions from '../../actions/expense';
+import {expense_reducer} from '../../reducers/expense';
 import {testexp} from '../fixture/expense';
 import configureMockStore from 'redux-mock-store';
 import moment from 'moment';
@@ -7,6 +8,15 @@ import db from '../../firebase/firebase';
 
 const createMockStore=configureMockStore([thunk]);
 
+beforeEach((done)=>{
+const expenseData={};
+testexp.forEach(({id, description, note, amount, createdAt})=>{
+    expenseData[id]={description, note, amount, createdAt};
+});
+db.ref('expense').set(expenseData).then(()=>{
+    done();
+});
+});
 
 test("Remove Expense action testing",()=>{
     expect(expense_actions.removeExpense({id:"abc123"})).toEqual({
@@ -23,6 +33,7 @@ test("EDIT expense action testing",()=>{
     updatedExpense: {description:"lastest updated rent", amount:910}
     });
     });
+
 
 
 // test("ADD expense action testing WITH DEFAULT VALUES",()=>{
@@ -79,14 +90,31 @@ test("should add expense with defaults to database and store",(done)=>{
 });            
 
 
+test("tesing SET Expense action generator", ()=>{
+   const action= expense_actions.setExpenses(testexp);
+   expect(action).toEqual({type:'SET_EXPENSE', expense:testexp});
 
+});
 
-// test("should add expense with defaults to database and store 2",(done)=>{
-//     const store=createMockStore({});
-//     const defaultExpense= {description:'', note:'', amount:0, createdAt:''};
-//            expense_actions.startAddExpense()(store.dispatch);
-//             const actions = store.getActions();
-//             expect(actions[0]).toEqual({type:"addExpense", expenseDetail:{id:expect.any(String), ...defaultExpense}});
+test("should set expense work",()=>{
+    const action= expense_actions.setExpenses(testexp[2]);
+    const state= expense_reducer(testexp,action);
+    expect(state).toEqual(testexp[2]);
+});
 
- 
-// });            
+test("should fetch expense from firebase",(done)=>{
+    const store=createMockStore({});
+    let expense=[];
+    db.ref('expense').once('value').then((snapshot)=>{
+        snapshot.forEach((val)=>{
+          expense.push({id:val.key,...val.val()});
+       });
+      }).then(()=>{
+        expense_actions.startSetExpense()(store.dispatch).then(()=>{
+            const actions =store.getActions();
+            expect(actions[0]).toEqual({type:'SET_EXPENSE', expense:expense});
+            done();
+          });
+      });   
+});
+

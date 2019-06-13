@@ -21,6 +21,9 @@ export const expense_reducer=(ps=[],action)=>{
     case("removeExpense"):
     return ps.filter(o => o.id !== action.id);;
     break;
+    case("SET_EXPENSE"):
+    return action.expense;
+    break;
     default:
     return ps;
     }

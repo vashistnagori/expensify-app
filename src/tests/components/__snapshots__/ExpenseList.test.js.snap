@@ -13,7 +13,7 @@ exports[`testing ExpenseList component with values 1`] = `
   <div>
     <ExpenseListItem
       amount={50}
-      createdAt={"1970-01-01T00:00:00.000Z"}
+      createdAt={0}
       description="laundry"
       id="1"
       key="list1"

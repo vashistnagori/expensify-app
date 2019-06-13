@@ -20,6 +20,9 @@ const jsx=(
     <Provider store={state}>
     <AppRoutes />
     </Provider>);
-ReactDOM.render(jsx, document.querySelector("#app"));
 
+ReactDOM.render(<p>loading...</p>, document.querySelector("#app"));
+expense_action.startSetExpense()(state.dispatch).then(()=>{
+ReactDOM.render(jsx, document.querySelector("#app"));
+});
 
