@@ -18,12 +18,12 @@ test("testing EditExpence page",()=>{
 test("testing EditExpence page onsubmit",()=>{
     wrapper.find("ExpenseForm").prop("onSubmit")(testexp[1]);
     expect(editfunction).toHaveBeenCalledWith(testexp[1].id, testexp[1]);
-    expect(history.push).toHaveBeenCalledWith("/");
+    expect(history.push).toHaveBeenCalledWith("/dashboard");
 });
 
 test("testing EditExpence page onremove",()=>{
     //wrapper.find("button").prop("onClick")({id:testexp[1].id});
     wrapper.find("button").simulate("click");
     expect(delfunction).toHaveBeenCalledWith({id:testexp[1].id});
-    expect(history.push).toHaveBeenCalledWith("/");
+    expect(history.push).toHaveBeenCalledWith("/dashboard");
 });

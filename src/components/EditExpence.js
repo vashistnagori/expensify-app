@@ -51,8 +51,8 @@ const mapStateToProps=(state, props)=>{
 
 const mapDispatchToProps=(dispatch)=>{
 return{
-   dispatch_removeExpense:({id})=>startRemoveExpense({id})(dispatch),
-   dispatch_editExpense:(id, expense)=> startEditExpense(id, expense)(dispatch)
+   dispatch_removeExpense:({id})=>dispatch(startRemoveExpense({id})),
+   dispatch_editExpense:(id, expense)=> dispatch(startEditExpense(id, expense))
 }
 }
 

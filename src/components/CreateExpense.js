@@ -16,10 +16,8 @@ export class CreateExpense extends React.Component{
   }
 }
 
-
-
     const mapDispatchToProps=(dispatch)=>({
-        dispatch_startAddExpense:(expense)=>startAddExpense(expense)(dispatch)
+        dispatch_startAddExpense:(expense)=>dispatch(startAddExpense(expense))
     });
 
 export default connect(undefined, mapDispatchToProps)(CreateExpense);
