@@ -73,22 +73,33 @@ export const startEditExpense=(id, updatedExpense)=>{
 
 ///////
 
-export const setExpenses=(expense)=>({
-type:'SET_EXPENSE',
-expense
-});
 
+
+
+export const setExpenses=(expenses)=>({
+type:'setExpense',
+expenses
+});
 
 
 export const startSetExpense=()=>{
     return (dispatch)=>{
-        let expense=[];
-       return db.ref('expense').once('value').then((snapshot)=>{
-          snapshot.forEach((val)=>{
-            expense.push({id:val.key,...val.val()});
-         });
-        }).then(()=>{
-            dispatch(setExpenses(expense));
+        let expenses=[];
+return db.ref('expense').once('value')
+        .then((snapshot)=>{
+        snapshot.forEach((val)=>{
+          expenses.push({id:val.key,...val.val()});
         });
+        })
+        .then(()=>{
+        console.log({
+          type:'setExpense',
+          expenses
+          });
+        dispatch(setExpenses(expenses));
+        })
+        .catch((e)=>console.log(e));
     }
 }
+
+

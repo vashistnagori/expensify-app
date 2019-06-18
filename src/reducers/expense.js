@@ -19,12 +19,13 @@ export const expense_reducer=(ps=[],action)=>{
     return updatedExpenseArray;
     break;
     case("removeExpense"):
-    return ps.filter(o => o.id !== action.id);;
+    return ps.filter(o => o.id !== action.id);
     break;
-    case("SET_EXPENSE"):
-    return action.expense;
+    case 'setExpense':
+    return action.expenses;
     break;
     default:
     return ps;
+    break;
     }
     };

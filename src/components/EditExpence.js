@@ -23,11 +23,11 @@ import {editExpense, removeExpense, startRemoveExpense, startEditExpense} from '
 export class EditExpence extends React.Component{
    onSubmitfun=(expense)=>{
       this.props.dispatch_editExpense(this.props.expense.id, expense);
-      this.props.history.push("/");
+      this.props.history.push("/dashboard");
    }
    onDelFun=(e)=>{
       this.props.dispatch_removeExpense({id:this.props.expense.id});
-      this.props.history.push("/");
+      this.props.history.push("/dashboard");
      }
 
    render(){

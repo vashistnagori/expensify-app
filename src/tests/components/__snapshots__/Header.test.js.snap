@@ -8,7 +8,7 @@ exports[`testing Header component 1`] = `
   <NavLink
     activeClassName="is_active"
     exact={true}
-    to="/"
+    to="/dashboard"
   >
     HomePage
   </NavLink>
@@ -20,12 +20,10 @@ exports[`testing Header component 1`] = `
     create
   </NavLink>
     
-  <NavLink
-    activeClassName="is_active"
-    to="/edit"
+  <button
+    onClick={[Function]}
   >
-    edit
-  </NavLink>
-    
+    Logout
+  </button>
 </div>
 `;

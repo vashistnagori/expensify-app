@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import {state} from './store/configureStore';
-import AppRoutes from './routes/AppRoutes';
+import  AppRoutes, {history} from './routes/AppRoutes';
 import * as expense_action from './actions/expense';
 import * as filter_action from './actions/filters';
 import {filterExpense} from './selectors/expense';
 import 'normalize.css/normalize.css';
 import './style/style.scss';
 import 'react-dates/lib/css/_datepicker.css';
-import './firebase/firebase';
-
+import {firebase} from './firebase/firebase';
+import {login, logout} from './actions/auth';
 
 // state.dispatch(expense_action.addExpense({description:"water bill", amount:3000, createdAt:2500}));
 // state.dispatch(expense_action.addExpense({description:"gas bill", createdAt:2000}));
@@ -21,8 +21,56 @@ const jsx=(
     <AppRoutes />
     </Provider>);
 
-ReactDOM.render(<p>loading...</p>, document.querySelector("#app"));
-expense_action.startSetExpense()(state.dispatch).then(()=>{
-ReactDOM.render(jsx, document.querySelector("#app"));
-});
+    ReactDOM.render(<p>loading...</p>, document.querySelector("#app"));
 
+///////////////////////////
+let hasRendered=false;
+const renderApp=()=>{
+    if(!hasRendered){
+        ReactDOM.render(jsx, document.querySelector("#app"));
+        hasRendered=true;
+    }
+}   
+
+///////////////////////////
+// firebase.auth().onAuthStateChanged((user)=>{
+//     if(user){
+//     console.log("Login",user.uid);
+//     state.dispatch(login(user.uid));
+//     expense_action.startSetExpense()(state.dispatch).then(()=>{
+//     renderApp();
+//     if(history.location.pathname=='/'){
+//         history.push("/dashboard");
+//     }
+//     });
+//     }
+//     else{
+//         renderApp();
+//         history.push('/');
+//         console.log("log out ");
+//         state.dispatch(logout());
+//     }
+//     });    
+    ///////////////////////////
+firebase.auth().onAuthStateChanged((user)=>{
+    if(user){
+    console.log("Login",user.uid);
+    state.dispatch(login(user.uid));
+   // expense_action.startSetExpense()(state.dispatch).then(()=>{
+    renderApp();
+    if(history.location.pathname=='/'){
+        history.push("/dashboard");
+    }
+   // });
+    }
+    else{
+        renderApp();
+        history.push('/');
+        console.log("log out ");
+        state.dispatch(logout());
+    }
+    });    
+///////////////////////
+state.subscribe(()=>{
+console.log("hello",state.getState());
+}); 
