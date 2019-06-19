@@ -56,12 +56,12 @@ firebase.auth().onAuthStateChanged((user)=>{
     if(user){
     console.log("Login",user.uid);
     state.dispatch(login(user.uid));
-  // state.dispatch(expense_action.startSetExpense()).then(()=>{
+   state.dispatch(expense_action.startSetExpense()).then(()=>{
     renderApp();
     if(history.location.pathname=='/'){
         history.push("/dashboard");
     }
-  // });
+   });
     }
     else{
         renderApp();

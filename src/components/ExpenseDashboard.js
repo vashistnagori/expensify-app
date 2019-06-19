@@ -9,9 +9,8 @@ import {expenseTotal} from '../selectors/expense-total';
 export const ExpenseDashboardMaking=(props)=>{
 const total= expenseTotal(props.expenses);
    return(<div>
-    <p>this is homepage</p>
-    <ExpenseListFilter />
     <ExpenseSumary total={total} count={props.expenses.length}/>
+    <ExpenseListFilter />
     <ExpenseList />
     </div>);
 }

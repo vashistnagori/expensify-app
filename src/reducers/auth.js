@@ -11,7 +11,7 @@ export const auth_reducer = (ps={},action)=>{
     return {};
     break;
     default:
-    return {};
+    return ps;
     break;
     }
 };
