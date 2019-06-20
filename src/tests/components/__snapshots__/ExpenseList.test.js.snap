@@ -1,64 +1,120 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`testing ExpenseList component with No values 1`] = `
-<div>
-  <p>
-    No Expenses
-  </p>
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Expense
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
+  </div>
+   
+  <div
+    className="list-body "
+  >
+    <div
+      className="list-item--message "
+    >
+      <span>
+        No Expenses
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`testing ExpenseList component with values 1`] = `
-<div>
-  <div>
-    <ExpenseListItem
-      amount={50}
-      createdAt={0}
-      description="laundry"
-      id="1"
-      key="list1"
-      note=""
-    />
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Expense
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
   </div>
-  <div>
-    <ExpenseListItem
-      amount={910}
-      createdAt={86400000}
-      description="rent"
-      id="2"
-      key="list2"
-      note=""
-    />
-  </div>
-  <div>
-    <ExpenseListItem
-      amount={800}
-      createdAt={691200000}
-      description="food"
-      id="3"
-      key="list3"
-      note=""
-    />
-  </div>
-  <div>
-    <ExpenseListItem
-      amount={110}
-      createdAt={2419200000}
-      description="mobile"
-      id="4"
-      key="list4"
-      note=""
-    />
-  </div>
-  <div>
-    <ExpenseListItem
-      amount={25}
-      createdAt={-345600000}
-      description="gym"
-      id="5"
-      key="list5"
-      note=""
-    />
+   
+  <div
+    className="list-body "
+  >
+    <div>
+      <ExpenseListItem
+        amount={50}
+        createdAt={0}
+        description="laundry"
+        id="1"
+        key="list1"
+        note=""
+      />
+    </div>
+    <div>
+      <ExpenseListItem
+        amount={910}
+        createdAt={86400000}
+        description="rent"
+        id="2"
+        key="list2"
+        note=""
+      />
+    </div>
+    <div>
+      <ExpenseListItem
+        amount={800}
+        createdAt={691200000}
+        description="food"
+        id="3"
+        key="list3"
+        note=""
+      />
+    </div>
+    <div>
+      <ExpenseListItem
+        amount={110}
+        createdAt={2419200000}
+        description="mobile"
+        id="4"
+        key="list4"
+        note=""
+      />
+    </div>
+    <div>
+      <ExpenseListItem
+        amount={25}
+        createdAt={-345600000}
+        description="gym"
+        id="5"
+        key="list5"
+        note=""
+      />
+    </div>
   </div>
 </div>
 `;

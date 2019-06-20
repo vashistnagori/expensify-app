@@ -1,20 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`testing ExpenseListItem with one expense data 1`] = `
-<div>
-  <Link
-    to="/edit/4"
-  >
-     
-    <h3>
+<Link
+  className="list-item"
+  to="/edit/4"
+>
+  <div>
+    <h3
+      className="list-item__title"
+    >
       mobile
     </h3>
-  </Link>
-  <p>
+    <span
+      className="list-item__sub- title"
+    >
+      January 28th, 1970
+    </span>
+  </div>
+  <h3
+    className="list-item__data"
+  >
     $1.10
-    -
-    January 28th, 1970
-  </p>
-  <hr />
-</div>
+  </h3>
+</Link>
 `;

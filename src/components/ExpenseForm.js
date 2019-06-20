@@ -52,18 +52,20 @@ formSubmit=(e)=>{
 
 
     render(){
-        return(<div>
-           {this.state.error && <p>{this.state.error}</p> } 
-            <form onSubmit={this.formSubmit}>
+        return(
+            <form onSubmit={this.formSubmit} className="form">
+            {this.state.error && <p className="form__error ">{this.state.error}</p> } 
             <input 
             type='text'
             placeholder='description'
+            className="text-input"
             value={this.state.description}
             onChange={this.decriptionChange}
             autoFocus
             />
             <input 
-            type='number'
+            type='text'
+            className="text-input"
             placeholder='amount'
             value={this.state.amount}
             onChange={this.amountChange}
@@ -78,11 +80,14 @@ formSubmit=(e)=>{
             />
             <textarea
             placeholder="add a note here"
+            className="textarea "
             value={this.state.note}
             onChange={this.noteChange}>
             </textarea>
-            <button>Add Expense</button>
+            <div>
+            <button className="button ">Save Expense</button>
+            </div>   
             </form>
-            </div>);
+            );
     }
 }

@@ -1,29 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`testing Header component 1`] = `
-<div>
-  <h1>
-    Expencify app
-  </h1>
-  <NavLink
-    activeClassName="is_active"
-    exact={true}
-    to="/dashboard"
+<div
+  className="header"
+>
+  <div
+    className="content-container"
   >
-    HomePage
-  </NavLink>
-    
-  <NavLink
-    activeClassName="is_active"
-    to="/create"
-  >
-    create
-  </NavLink>
-    
-  <button
-    onClick={[Function]}
-  >
-    Logout
-  </button>
+    <div
+      className="header__content"
+    >
+      <Link
+        className="header__title"
+        exact={true}
+        to="/dashboard"
+      >
+         
+        <h1>
+          Expencify app
+        </h1>
+      </Link>
+        
+      <button
+        className="button button--link "
+        onClick={[Function]}
+      >
+        Logout
+      </button>
+    </div>
+  </div>
 </div>
 `;
